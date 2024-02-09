@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="746.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.view.FXMLCadastrarController">
+   <children>
+      <Label fx:id="lbTitulo" layoutX="61.0" layoutY="89.0" text="Título">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbCadastrarTitulo" alignment="CENTER" layoutX="246.0" layoutY="36.0" text="Cadastro de Livros">
+         <font>
+            <Font name="DejaVu Sans Bold" size="24.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <TextField fx:id="txtTitulo" layoutX="61.0" layoutY="116.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite aqui o título">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbAutor" layoutX="61.0" layoutY="171.0" text="Autor">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAutor" layoutX="61.0" layoutY="198.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite aqui o autor">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbEditora" layoutX="61.0" layoutY="257.0" text="Editora">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEditora" layoutX="61.0" layoutY="284.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite aqui a editora">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbNroPaginas" layoutX="61.0" layoutY="342.0" text="Nro de Páginas">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNroPaginas" layoutX="61.0" layoutY="369.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite o número de páginas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbCategoria" layoutX="61.0" layoutY="428.0" text="Categoria">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCategoria" layoutX="61.0" layoutY="455.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite a categoria">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbSituacao" layoutX="61.0" layoutY="514.0" text="Situação">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSituacao" layoutX="61.0" layoutY="541.0" prefHeight="34.0" prefWidth="314.0" promptText="Situação atual do livro">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btSalvar" layoutX="421.0" layoutY="536.0" mnemonicParsing="false" onMouseClicked="#handleBtSalvar" prefHeight="42.0" prefWidth="104.0" text="Salvar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btLimpar" layoutX="551.0" layoutY="536.0" mnemonicParsing="false" onMouseClicked="#handleBtLimpar" prefHeight="42.0" prefWidth="104.0" text="Limpar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
