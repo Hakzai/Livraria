@@ -2,9 +2,14 @@ package controller.view;
 
 import controller.dao.CadastrarDAO;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -51,13 +56,13 @@ public class FXMLCadastrarController {
     private Label lbCategoria;
 
     @FXML
-    private TextField txtCategoria;
+    private ComboBox<String> cbCategoria;
 
     @FXML
     private Label lbSituacao;
 
     @FXML
-    private TextField txtSituacao;
+    private ComboBox<String> cbSituacao;
 
     @FXML
     private Button btSalvar;
@@ -73,9 +78,9 @@ public class FXMLCadastrarController {
     @FXML
     void handleBtSalvar(MouseEvent event) {
         
-        // VERIFICA SE HÁ ALGUM CAMPO VAZIO
+        // VERIFICA SE HA ALGUM CAMPO VAZIO
         if(txtTitulo.getText().isEmpty() || txtAutor.getText().isEmpty() || txtEditora.getText().isEmpty() 
-                || txtNroPaginas.getText().isEmpty() || txtCategoria.getText().isEmpty() || txtSituacao.getText().isEmpty()){
+                || txtNroPaginas.getText().isEmpty() || null == cbCategoria.getValue() || null == cbSituacao.getValue()){
             JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos", "Erro!", 0);
             return;
         }
@@ -101,8 +106,8 @@ public class FXMLCadastrarController {
         txtAutor.setText("");
         txtEditora.setText("");
         txtNroPaginas.setText("");
-        txtCategoria.setText("");
-        txtSituacao.setText("");
+        cbCategoria.setValue(null);
+        cbSituacao.setValue(null);
     }
     
     public Livro getTxtValues(){
@@ -113,8 +118,8 @@ public class FXMLCadastrarController {
             txtAutor.getText(),
             txtEditora.getText(),
             Integer.parseInt(txtNroPaginas.getText()),
-            txtCategoria.getText(),
-            txtSituacao.getText()
+            cbCategoria.getValue(),
+            cbSituacao.getValue()
         );
         
         return livro;
@@ -132,11 +137,26 @@ public class FXMLCadastrarController {
         assert lbNroPaginas != null : "fx:id=\"lbNroPaginas\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
         assert txtNroPaginas != null : "fx:id=\"txtNroPaginas\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
         assert lbCategoria != null : "fx:id=\"lbCategoria\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
-        assert txtCategoria != null : "fx:id=\"txtCategoria\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
         assert lbSituacao != null : "fx:id=\"lbSituacao\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
-        assert txtSituacao != null : "fx:id=\"txtSituacao\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
+        assert cbSituacao != null : "fx:id=\"cbSituacao\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
         assert btSalvar != null : "fx:id=\"btSalvar\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
         assert btLimpar != null : "fx:id=\"btLimpar\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
-
+        assert cbCategoria != null : "fx:id=\"cbCategoria\" was not injected: check your FXML file 'FXMLCadastrar.fxml'.";
+        
+        loadCategorias();
+        loadSituacoes();
+    }
+    
+    private void loadCategorias()
+    {
+    	CadastrarDAO cadastrar = new CadastrarDAO();
+    	cbCategoria.setItems(cadastrar.getAllCategories());
+    }
+    
+    private void loadSituacoes()
+    {
+    	String[] status = {"Novo", "Não Lido", "Lendo", "Lido"};
+    	ObservableList<String> statusList= FXCollections.observableArrayList(Arrays.asList(status));
+    	cbSituacao.setItems(statusList);
     }
 }

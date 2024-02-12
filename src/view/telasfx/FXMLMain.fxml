@@ -7,46 +7,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPaneMain" prefHeight="531.0" prefWidth="1147.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.FXMLMainController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPaneMain" prefHeight="531.0" prefWidth="1147.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.FXMLMainController">
    <children>
-      <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" layoutX="327.0" layoutY="444.0" onAction="#handleBtnCadastrar" prefHeight="40.0" prefWidth="150.0" text="Cadastrar Livro">
+      <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="477.0" onAction="#handleBtnCadastrar" prefHeight="40.0" prefWidth="150.0" text="Cadastrar Livro">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnEditar" alignment="CENTER" contentDisplay="CENTER" layoutX="497.0" layoutY="444.0" onAction="#handleBtnEditar" prefHeight="40.0" prefWidth="150.0" text="Editar Livro">
+      <Button fx:id="btnEditar" alignment="CENTER" contentDisplay="CENTER" layoutX="813.0" layoutY="477.0" onAction="#handleBtnEditar" prefHeight="40.0" prefWidth="150.0" text="Editar Livro">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" alignment="CENTER" contentDisplay="CENTER" layoutX="1058.0" layoutY="380.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleBtnLimpar" prefHeight="30.0" prefWidth="71.0" text="Limpar" />
-      <Button fx:id="btnExcluir" alignment="CENTER" contentDisplay="CENTER" layoutX="666.0" layoutY="444.0" onAction="#handleBtnExcluir" prefHeight="40.0" prefWidth="150.0" text="Excluir Livro">
+      <Button fx:id="btnLimpar" alignment="CENTER" contentDisplay="CENTER" layoutX="991.0" layoutY="383.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleBtnLimpar" prefHeight="26.0" prefWidth="138.0" text="Limpar Filtros" />
+      <Button fx:id="btnExcluir" alignment="CENTER" contentDisplay="CENTER" layoutX="983.0" layoutY="477.0" onAction="#handleBtnExcluir" prefHeight="40.0" prefWidth="150.0" text="Excluir Livro">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <BorderPane fx:id="borderMainLivraria" layoutX="14.0" layoutY="53.0" prefHeight="292.0" prefWidth="1115.0">
-         <center>
-            <TableView fx:id="tableMainLivraria" prefHeight="205.0" prefWidth="742.0" BorderPane.alignment="CENTER">
-               <columns>
-                  <TableColumn fx:id="tableColumnMainId" prefWidth="40.0" text="ID" />
-                  <TableColumn fx:id="tableColumnMainTitulo" prefWidth="300.0" text="Título do Livro" />
-                  <TableColumn fx:id="tableColumnMainAutor" prefWidth="250.0" text="Autor" />
-                  <TableColumn fx:id="tableColumnMainEditora" minWidth="5.0" prefWidth="180.0" text="Editora" />
-                  <TableColumn fx:id="tableColumnMainNroPaginas" prefWidth="62.0" text="Nro Pág" />
-                  <TableColumn fx:id="tableColumnMainCategoria" prefWidth="194.0" text="Categoria" />
-                  <TableColumn fx:id="tableColumnMainStatus" minWidth="0.0" prefWidth="88.0" text="STATUS" />
-               </columns>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </TableView>
-         </center>
-      </BorderPane>
-      <Label fx:id="lbMainTitulo" alignment="CENTER" layoutX="477.0" layoutY="14.0" text="Minha Biblioteca">
+      <Label fx:id="lbMainTitulo" alignment="CENTER" layoutX="477.0" layoutY="14.0" style="-fx-text-fill: white;" text="Minha Biblioteca">
          <font>
             <Font name="DejaVu Sans Bold" size="20.0" />
          </font>
@@ -54,14 +35,26 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <TextField fx:id="txtTitulo" layoutX="69.0" layoutY="383.0" prefHeight="26.0" prefWidth="271.0" promptText="Digite o título a filtrar" />
-      <TextField fx:id="txtAutor" layoutX="364.0" layoutY="383.0" prefHeight="26.0" prefWidth="234.0" promptText="Digite o autor a filtrar" />
-      <TextField fx:id="txtEditora" layoutX="620.0" layoutY="383.0" prefHeight="26.0" prefWidth="161.0" promptText="Digite a editora a filtrar" />
-      <TextField fx:id="txtCategoria" layoutX="848.0" layoutY="383.0" prefHeight="26.0" prefWidth="189.0" promptText="Digite a categoria a filtrar" />
-      <Label fx:id="lbFiltrar" layoutX="14.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Filtrar:" />
-      <Label fx:id="lbTitulo" alignment="CENTER" layoutX="173.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Título" />
+      <TableView fx:id="tableMainLivraria" layoutX="14.0" layoutY="53.0" prefHeight="292.0" prefWidth="1111.0" style="-fx-background-color: darkgray;" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="53.0">
+         <columns>
+            <TableColumn fx:id="tableColumnMainId" prefWidth="40.0" text="ID" />
+            <TableColumn fx:id="tableColumnMainTitulo" prefWidth="300.0" text="Titulo do Livro" />
+            <TableColumn fx:id="tableColumnMainAutor" prefWidth="250.0" text="Autor" />
+            <TableColumn fx:id="tableColumnMainEditora" minWidth="5.0" prefWidth="180.0" text="Editora" />
+            <TableColumn fx:id="tableColumnMainCategoria" prefWidth="194.0" text="Categoria" />
+            <TableColumn fx:id="tableColumnMainNroPaginas" prefWidth="62.0" text="Nro Pag" />
+            <TableColumn fx:id="tableColumnMainStatus" minWidth="0.0" prefWidth="88.0" text="STATUS" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtTitulo" layoutX="69.0" layoutY="383.0" onAction="#handleFilterAction" onKeyReleased="#handleFilterAction" prefHeight="26.0" prefWidth="282.0" promptText="Digite o titulo a filtrar" />
+      <TextField fx:id="txtAutor" layoutX="356.0" layoutY="383.0" onAction="#handleFilterAction" onKeyReleased="#handleFilterAction" prefHeight="26.0" prefWidth="249.0" promptText="Digite o autor a filtrar" />
+      <TextField fx:id="txtEditora" layoutX="610.0" layoutY="383.0" onAction="#handleFilterAction" onKeyReleased="#handleFilterAction" prefHeight="26.0" prefWidth="177.0" promptText="Digite a editora a filtrar" />
+      <TextField fx:id="txtCategoria" layoutX="791.0" layoutY="383.0" onAction="#handleFilterAction" onKeyPressed="#handleFilterAction" onKeyReleased="#handleFilterAction" prefHeight="26.0" prefWidth="194.0" promptText="Digite a categoria a filtrar" />
+      <Label fx:id="lbFiltrar" layoutX="14.0" layoutY="355.0" prefHeight="17.0" prefWidth="61.0" text="Filtrar por:" />
+      <Label fx:id="lbTitulo" alignment="CENTER" layoutX="182.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Título" />
       <Label fx:id="lbAutor" alignment="CENTER" layoutX="458.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Autor" />
       <Label fx:id="lbEditora" alignment="CENTER" layoutX="677.0" layoutY="355.0" prefHeight="17.0" prefWidth="46.0" text="Editora" />
-      <Label fx:id="lbCategoria" alignment="CENTER" layoutX="899.0" layoutY="355.0" prefHeight="17.0" prefWidth="86.0" text="Categoria" />
+      <Label fx:id="lbCategoria" alignment="CENTER" layoutX="845.0" layoutY="355.0" prefHeight="17.0" prefWidth="86.0" text="Categoria" />
+      <Label fx:id="lbContem" layoutX="14.0" layoutY="388.0" text="Contém:" />
    </children>
 </AnchorPane>

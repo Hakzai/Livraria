@@ -2,13 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="746.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.view.FXMLCadastrarController">
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.FXMLCadastrarController">
    <children>
       <Label fx:id="lbTitulo" layoutX="61.0" layoutY="89.0" text="Título">
          <font>
@@ -63,21 +63,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCategoria" layoutX="61.0" layoutY="455.0" prefHeight="34.0" prefWidth="594.0" promptText="Digite a categoria">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
+      <ComboBox fx:id="cbCategoria" layoutX="63.0" layoutY="455.0" prefHeight="37.0" prefWidth="586.0" promptText="Escolha a categoria" visibleRowCount="5" />
       <Label fx:id="lbSituacao" layoutX="61.0" layoutY="514.0" text="Situação">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSituacao" layoutX="61.0" layoutY="541.0" prefHeight="34.0" prefWidth="314.0" promptText="Situação atual do livro">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
+      <ComboBox fx:id="cbSituacao" layoutX="62.0" layoutY="540.0" prefHeight="37.0" prefWidth="191.0" promptText="Escolha a situação" />
       <Button fx:id="btSalvar" layoutX="421.0" layoutY="536.0" mnemonicParsing="false" onMouseClicked="#handleBtSalvar" prefHeight="42.0" prefWidth="104.0" text="Salvar">
          <font>
             <Font size="16.0" />

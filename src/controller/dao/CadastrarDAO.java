@@ -6,15 +6,13 @@
 package controller.dao;
 
 import controller.connection.ConnectionFactory;
+import javafx.collections.FXCollections;
+
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Locale;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import model.classe.Livro;
 
@@ -58,6 +56,34 @@ public class CadastrarDAO {
         } 
                 
         return result;
+    }
+    
+    public ObservableList<String> getAllCategories()
+    {
+    	ObservableList<String> categoriesList = FXCollections.observableArrayList();
+    	
+		String sql = "SELECT DISTINCT lv_categoria FROM livros ORDER BY lv_categoria";
+        
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        
+        try{
+            stmt = conn.prepareStatement(sql);
+            
+            result = stmt.executeQuery();
+            while(result.next())
+            {
+            	categoriesList.add(result.getString("lv_categoria"));
+            }
+            
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro DAO: " + ex);
+            
+        } finally {
+            ConnectionFactory.closeConnection(conn, stmt);
+        } 
+                
+    	return categoriesList;
     }
     
 }
